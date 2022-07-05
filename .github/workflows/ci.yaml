@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup node
+        uses: actions/node@v1
+        with:
+          node-version: 18.x
+
+      - name: install
+        run: yarn
+
+      - name: lint
+        run: yarn lint
